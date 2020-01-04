@@ -13,8 +13,10 @@ const int height = 736;
 // wxWidgets APP
 IMPLEMENT_APP(ChatBotApp);
 
-std::string dataPath = "../";
+//std::string dataPath = "../";
+std::string dataPath = "/Users/arnie/Documents/00proj/09train/00cpp/CppND-Memory-Management-Chatbot/";
 std::string imgBasePath = dataPath + "images/";
+
 
 bool ChatBotApp::OnInit()
 {
@@ -118,7 +120,9 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     ////
 
     // create chat logic instance
-    _chatLogic = new ChatLogic(); 
+    //_chatLogic = new ChatLogic();
+    // AS: make_shared instead of new
+    _chatLogic = std::make_unique<ChatLogic>(); 
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
@@ -134,8 +138,8 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
 {
     //// STUDENT CODE
     ////
-
-    delete _chatLogic;
+    //AS no longer required so _chatLogic is now a unique pointer
+    //delete _chatLogic;
 
     ////
     //// EOF STUDENT CODE

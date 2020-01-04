@@ -1,3 +1,6 @@
+// AS added for debugging purposes
+#include <iostream>
+
 #include "graphedge.h"
 #include "graphnode.h"
 
@@ -10,9 +13,7 @@ GraphNode::~GraphNode()
 {
     //// STUDENT CODE
     ////
-
-    delete _chatBot; 
-
+    _chatBot = nullptr; // Remove delete operation because it uses a shallow copy of the handle currently owned by ChatLogic
     ////
     //// EOF STUDENT CODE
 }
