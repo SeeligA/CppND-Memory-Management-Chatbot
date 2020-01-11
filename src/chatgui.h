@@ -28,7 +28,7 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    // AS make unique
+    // AS get resource from unique pointer
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
     // events

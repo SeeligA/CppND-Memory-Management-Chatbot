@@ -140,6 +140,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
     ////
     //AS no longer required so _chatLogic is now a unique pointer
     //delete _chatLogic;
+    _chatLogic.reset();
 
     ////
     //// EOF STUDENT CODE
