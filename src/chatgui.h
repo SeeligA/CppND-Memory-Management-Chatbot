@@ -16,7 +16,7 @@ private:
     //// STUDENT CODE
     ////
     //ChatLogic *_chatLogic;
-    // AS make shared
+    // AS make unique
     std::unique_ptr<ChatLogic> _chatLogic;
 
     ////
@@ -28,8 +28,7 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    // AS make shared
-    //ChatLogic *GetChatLogicHandle() { return _chatLogic; }
+    // AS make unique
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 
     // events

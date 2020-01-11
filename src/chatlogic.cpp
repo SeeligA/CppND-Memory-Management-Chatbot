@@ -40,7 +40,8 @@ ChatLogic::~ChatLogic()
     // delete all nodes
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
     {
-        delete *it;
+        // AS: no longer required since uniue pointer
+        //delete *it;
     }
 
     // delete all edges
