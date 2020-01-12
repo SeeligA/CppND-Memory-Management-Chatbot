@@ -27,7 +27,7 @@ public:
     ChatBotPanelDialog(wxWindow *parent, wxWindowID id);
     ~ChatBotPanelDialog();
 
-    // getter / setter
+    // oter / setter
     // AS get resource from unique pointer
     ChatLogic *GetChatLogicHandle() { return _chatLogic.get(); }
 

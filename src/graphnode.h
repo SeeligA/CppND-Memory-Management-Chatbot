@@ -16,10 +16,13 @@ private:
     ////
 
     // data handles (owned)
-    std::vector<GraphEdge *> _childEdges;  // edges to subsequent nodes
+    //ASE 4
+    //std::vector<GraphEdge *> _childEdges;  // edges to subsequent nodes
+    std::vector<std::unique_ptr<GraphEdge>> _childEdges;  // edges to subsequent nodes
 
-    // data handles (not owned)
+    // data handles (not owneds)
     std::vector<GraphEdge *> _parentEdges; // edges to preceding nodes 
+    //std::vector<std::unique_ptr<GraphEdge>> _parentEdges; // edges to preceding nodes 
     ChatBot *_chatBot;
 
     ////
@@ -44,7 +47,10 @@ public:
     // proprietary functions
     void AddToken(std::string token); // add answers to list
     void AddEdgeToParentNode(GraphEdge *edge);
-    void AddEdgeToChildNode(GraphEdge *edge);
+
+    // ASE
+    //void AddEdgeToChildNode(GraphEdge *edge);
+    void AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge);
 
     //// STUDENT CODE
     ////
