@@ -13,6 +13,7 @@ GraphNode::~GraphNode()
 {
     //// STUDENT CODE
     ////
+    // ASE 5
     _chatBot = nullptr; // Remove delete operation because it uses a shallow copy of the handle currently owned by ChatLogic
     ////
     //// EOF STUDENT CODE
@@ -39,16 +40,21 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 
 //// STUDENT CODE
 ////
-void GraphNode::MoveChatbotHere(ChatBot *chatbot)
+//ASE 5
+//void GraphNode::MoveChatbotHere(ChatBot *chatbot)
+void GraphNode::MoveChatbotHere(std::unique_ptr<ChatBot> chatbot)
 {
-    _chatBot = chatbot;
+    _chatBot = std::move(chatbot);
+    //*_chatBot = *chatbot;
     _chatBot->SetCurrentNode(this);
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
-    newNode->MoveChatbotHere(_chatBot);
-    _chatBot = nullptr; // invalidate pointer at source
+    // ASE 5
+    //newNode->MoveChatbotHere(_chatBot);
+    //_chatBot = nullptr; // invalidate pointer at source
+    newNode->MoveChatbotHere(std::move(_chatBot));
 }
 ////
 //// EOF STUDENT CODE

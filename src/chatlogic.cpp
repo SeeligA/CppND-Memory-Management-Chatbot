@@ -198,7 +198,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             (*parentNode)->AddEdgeToChildNode(std::move(edge));
                             
                         }
-
                         ////
                         //// EOF STUDENT CODE
                     }
@@ -245,8 +244,13 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(_chatBot);
+    // ASE
+
+    //rootNode->MoveChatbotHere(_chatBot);
+    std::unique_ptr<ChatBot> localBot = std::make_unique<ChatBot>(*_chatBot);
+    rootNode->MoveChatbotHere(std::move(localBot));
     
+
     ////
     //// EOF STUDENT CODE
 }

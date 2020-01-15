@@ -45,27 +45,27 @@ ChatBot::~ChatBot()
 ChatBot::ChatBot(ChatBot &source)  
 {
     std::cout << "ChatBot Copy Constructor" << std::endl;
-    if (_image != nullptr)
+    /* if (_image != nullptr)
     {
         delete _image;
-    }    
-    *_image = *source.GetImageHandle();
+    }     */
+    _image = source.GetImageHandle();
     
-    this->SetRootNode(source._rootNode);
     this->SetChatLogicHandle(source._chatLogic);
+    this->SetRootNode(source._rootNode);
 }
 
-ChatBot &ChatBot::operator=(ChatBot &source) // Copy assignment constructor
+ChatBot &ChatBot::operator=(ChatBot &source) // Copy assignment operator
 {
     std::cout << "ChatBot Copy Assignment Constructor" << std::endl;
-    if (_image != nullptr)
-    {
-        delete _image;
-    }    
-    *_image = *source.GetImageHandle();
-    
-    this->SetRootNode(source._rootNode);
+    // if (_image != nullptr)
+    // {
+    //     delete _image;
+    // }    
+    _image = source.GetImageHandle();
     this->SetChatLogicHandle(source._chatLogic);
+    this->SetRootNode(source._rootNode);
+
     return *this;
 }
 
@@ -73,9 +73,9 @@ ChatBot::ChatBot(ChatBot &&source) // Move constructor
 {
     std::cout << "ChatBot Move Constructor" << std::endl;
 
-    *_image = *source.GetImageHandle();
-    this->SetRootNode(source._rootNode);
+    _image = source.GetImageHandle();
     this->SetChatLogicHandle(source._chatLogic);
+    this->SetRootNode(source._rootNode);
 
     source.SetRootNode(nullptr);
     source.SetChatLogicHandle(nullptr);
@@ -89,7 +89,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // Move assignment operator
     {
         delete _image;
     }    
-    *_image = *source.GetImageHandle();
+    _image = source.GetImageHandle();
     this->SetRootNode(source._rootNode);
     this->SetChatLogicHandle(source._chatLogic);
 

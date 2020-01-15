@@ -23,7 +23,8 @@ private:
     std::vector<GraphEdge *> _edges;
     std::vector<std::unique_ptr<GraphNode>> _nodes;
     //std::vector<std::unique_ptr<GraphEdge>> _edges;
-
+    // ASE 5
+    std::unique_ptr<ChatBot> movingBot;
     ////
     //// EOF STUDENT CODE
 
