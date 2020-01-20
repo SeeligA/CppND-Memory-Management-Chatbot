@@ -1,6 +1,3 @@
-// AS added for debugging purposes
-#include <iostream>
-
 #include "graphedge.h"
 #include "graphnode.h"
 
@@ -40,14 +37,9 @@ void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge)
 
 //// STUDENT CODE
 ////
-//ASE 5
-//void GraphNode::MoveChatbotHere(ChatBot *chatbot)
-//void GraphNode::MoveChatbotHere(std::unique_ptr<ChatBot> chatbot)
 void GraphNode::MoveChatbotHere(ChatBot chatbot)
 {
     _chatBot = std::move(chatbot);
-
-    //_chatBot = std::move(chatbot);
     _chatBot.SetCurrentNode(this);
 }
 

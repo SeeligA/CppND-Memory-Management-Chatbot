@@ -17,10 +17,7 @@ private:
     ////
 
     // data handles (owned)
-    // ASE 2
-    //std::vector<GraphNode *> _nodes;
-    // ASE 3
-    std::vector<GraphEdge *> _edges;
+
     std::vector<std::unique_ptr<GraphNode>> _nodes;
 
     ////

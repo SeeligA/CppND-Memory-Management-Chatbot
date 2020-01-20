@@ -13,8 +13,8 @@ const int height = 736;
 // wxWidgets APP
 IMPLEMENT_APP(ChatBotApp);
 
-std::string dataPath = "../";
-//std::string dataPath = "/Users/arnie/Documents/00proj/09train/00cpp/CppND-Memory-Management-Chatbot/";
+//std::string dataPath = "../";
+std::string dataPath = "/Users/arnie/Documents/00proj/09train/00cpp/CppND-Memory-Management-Chatbot/";
 std::string imgBasePath = dataPath + "images/";
 
 

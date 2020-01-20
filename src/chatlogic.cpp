@@ -17,12 +17,6 @@ ChatLogic::ChatLogic()
     //// STUDENT CODE
     ////
 
-    // create instance of chatbot
-    
-    //_chatBot = new ChatBot("../images/chatbot.png");
-    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    //_chatBot->SetChatLogicHandle(this);
-
     ////
     //// EOF STUDENT CODE
 }
@@ -31,22 +25,6 @@ ChatLogic::~ChatLogic()
 {
     //// STUDENT CODE
     ////
-
-    // delete chatbot instance
-    //delete _chatBot;
-
-    // delete all nodes
-    // ASE: Let the smart pointer take care of cleaning
-    // for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
-    // {  
-    //     delete *it;
-    // }
-
-    // delete all edges
-    for (auto it = std::begin(_edges); it != std::end(_edges); ++it)
-    {
-        delete *it;
-    }
 
     ////
     //// EOF STUDENT CODE
@@ -173,7 +151,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             //edge->SetParentNode(*parentNode);
                             edge->SetChildNode(childNode->get());
                             edge->SetParentNode(parentNode->get());
-                            _edges.push_back(edge.get());
                             
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
@@ -230,8 +207,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
     
     // add chatbot to graph root node
-    ChatBot chatbot("../images/chatbot.png");
-    //ChatBot chatbot("/Users/arnie/Documents/00proj/09train/00cpp/CppND-Memory-Management-Chatbot/images/chatbot.png");
+    //ChatBot chatbot("../images/chatbot.png");
+    ChatBot chatbot("/Users/arnie/Documents/00proj/09train/00cpp/CppND-Memory-Management-Chatbot/images/chatbot.png");
     chatbot.SetRootNode(rootNode);
     chatbot.SetChatLogicHandle(this);
     rootNode->MoveChatbotHere(std::move(chatbot));
